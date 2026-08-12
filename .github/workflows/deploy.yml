@@ -25,3 +25,5 @@ jobs:
 
       - name: Composer versiyasini tekshirish
         run: composer --version
+      - name: Secret test
+        run: echo "${{ secrets.TEST_SECRET }}"
