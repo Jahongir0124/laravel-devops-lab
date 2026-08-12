@@ -29,5 +29,8 @@ jobs:
       - name: Composer install
         run: composer install --no-interaction --prefer-dist
 
+      - name: Docker build test
+        run: docker build -t laravel-devops-lab .
+
       - name: Secret test
         run: echo "${{ secrets.TEST_SECRET }}"
