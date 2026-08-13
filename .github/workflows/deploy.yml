@@ -44,4 +44,7 @@ jobs:
       - name: Push Docker image
         run: |
            docker tag laravel-devops-lab developer01242757/laravel-devops-lab:latest
+           docker tag laravel-devops-lab developer01242757/laravel-devops-lab:v1
+
            docker push developer01242757/laravel-devops-lab:latest
+           docker push developer01242757/laravel-devops-lab:v1
