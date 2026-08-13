@@ -34,3 +34,14 @@ jobs:
 
       - name: Secret test
         run: echo "${{ secrets.TEST_SECRET }}"
+
+      - name: Login to Docker Hub
+        uses: docker/logib-action@v3
+        with:
+            username: ${{ secrets.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push Docker image
+        run: |
+           docker tag laravel-devops-lab developer01242757/laravel-devops-lab:latest
+           docker push developer01242757/laravel-devops-lab:latest
