@@ -2,11 +2,13 @@ services:
 
 
     app:
-      build: .
-      container_name: laravel-app
+      image: developer01242757/laravel-devops-lab:v1
+      container_name: laravel-test
       working_dir: /var/www/html
-      volumes:
-        - .:/var/www/html
+      env_file:
+        - .env
+      # volumes:
+      #  - .:/var/www/html
 
     mysql:
        image: mysql:8

@@ -48,3 +48,13 @@ jobs:
 
            docker push developer01242757/laravel-devops-lab:latest
            docker push developer01242757/laravel-devops-lab:v1
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+           host: ${{ secrets.SSH_HOST }}
+           username: ${{ secrets.SSH_USER }}
+           key: ${{ secrets.SSH_KEY }}
+           script: |
+             cd /home/admin0124/Project-test/docker-project
+             docker compose pull
+             docker compose up -d
