@@ -13,12 +13,6 @@ jobs:
       - name: Repository yuklash
         uses: actions/checkout@v4
 
-
-      - name: PHP o'rnatish
-        uses: shivammathur/setup-php@v2
-        with:
-            php-version: 8.3
-
       - name: PHP versiyasini tekshirish
         run: php -v
 
