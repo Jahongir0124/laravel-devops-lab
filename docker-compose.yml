@@ -10,12 +10,6 @@ services:
       restart: unless-stopped
       # volumes:
       #  - .:/var/www/html
-      healthcheck:
-        test: ["CMD", "php", "-v"]
-        interval: 30s
-        timeout: 10s
-        retries: 3
-        start_period: 20s
     mysql:
        image: mysql:8
        container_name: laravel-mysql
@@ -39,6 +33,13 @@ services:
         depends_on:
           - app
         restart: unless-stopped
+
+        healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health"]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 20s
     redis:
         image: redis:7
         container_name: laravel-redis
