@@ -33,11 +33,10 @@ Route::get('/health', function () {
 		  'status' => $healthy ? 'ok' : 'unhealthy',
 		  'app' => 'laravel-devops-lab',
 		  'database' => $database',
-		  'redis' => $redis],
-		$healthy ? 200 : 503);
+		  'redis' => $redis
+			],$healthy ? 200 : 503);
 
 });
 
-]);
 
 });
