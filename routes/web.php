@@ -38,5 +38,3 @@ Route::get('/health', function () {
 
 });
 
-
-});
